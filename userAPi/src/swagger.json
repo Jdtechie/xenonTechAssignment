@@ -1,0 +1,2206 @@
+{
+  "openapi": "3.0.2",
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "USER"
+  },
+  "tags": [
+    {
+      "name": "USER",
+      "description": "It contains all User api's"
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3004/v1/user",
+      "description": "Development server"
+    },
+    {
+      "url": "http://localhost:3004/v1/user",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/adminLogin": {
+      "post": {
+        "tags": ["ADMIN"],
+        "summary": "admin login",
+        "requestBody": {
+          "description": "admin login.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/adminLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addPost": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "Add new Post",
+        "requestBody": {
+          "description": "Add new Post.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addPost"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deletePost": {
+      "post": {
+        "tags": ["DELETE"],
+        "summary": "delete Post",
+        "requestBody": {
+          "description": "delete Post.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deletePost"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/forgotPassword": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "forgot password",
+        "requestBody": {
+          "description": "forgot password.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/forgotPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "Register user",
+        "requestBody": {
+          "description": "user registration.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/registerUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/adminRegistration": {
+      "post": {
+        "tags": ["ADMIN"],
+        "summary": "Register admin",
+        "requestBody": {
+          "description": "admin registration.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/registerUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getUserById": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get user details by user ID",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getUser/{id}": {
+      "get": {
+        "tags": ["ADMIN"],
+        "summary": "Get user details by user ID",
+        "parameters": [
+          {
+            "in": "path",
+            "type": "number",
+            "name": "id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllPendingRequests/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get all Pending Requests",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPostsByUserId/{userId}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get post details by user postId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getBookByUserId/{userId}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get Book details by user postId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editProfile/{id}": {
+      "post": {
+        "tags": ["ADMIN"],
+        "summary": "Edit user Profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "requestBody": {
+          "description": "edit user profile",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/editProfile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateMessageStatus": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "update the message status to read",
+        "requestBody": {
+          "description": "update message status",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fromUserId": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "toUserId": {
+                    "type": "number",
+                    "required": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editProfileById": {
+      "post": {
+        "tags": ["UPDATE"],
+        "summary": "Edit user Profile",
+        "requestBody": {
+          "description": "edit user profile",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/editProfile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllUser/{limit}/{offset}": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "Get All user details",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "requestBody": {
+          "description": "get All Users",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getAllUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/getUsers/{limit}/{offset}": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "Get All user details",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "requestBody": {
+          "description": "get All Users",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getAllUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/getPosts/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get All post details",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getBooks/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get All Books detail",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPostsById/{id}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get post details by user postId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteUser/{id}": {
+      "post": {
+        "tags": ["DELETE"],
+        "summary": "Delete single user by userId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resetPassword/{randomString}": {
+      "post": {
+        "tags": ["UPDATE"],
+        "summary": "reset password",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "randomString",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "description": "reset password",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/resetPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changePassword": {
+      "post": {
+        "tags": ["UPDATE"],
+        "summary": "change user password",
+        "requestBody": {
+          "description": "change user password.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/changePassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getFriendList": {
+      "post": {
+        "tags": ["ADMIN"],
+        "summary": "get all friend requests",
+        "requestBody": {
+          "description": "get all friend lists",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "number",
+                    "required": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllFriendList/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "get all friend list",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getFollowers/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "get friend requests you got",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getFollowings/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "get friend requests you sent",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllFriendRequests/{limit}/{offset}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "get all friend requests ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addFriend": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "add Friend",
+        "requestBody": {
+          "description": "add Friend in your friend List.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addFriend"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/searchFriend/{search}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "get all friend requests",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "search",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "User login",
+        "requestBody": {
+          "description": "user login.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getMessagesByUserId/{limit}/{offset}": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "get messages by user id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "requestBody": {
+          "description": "get messages by user id.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getMessagesByUserId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllMessagesByUserId/{limit}/{offset}": {
+      "post": {
+        "tags": ["ADMIN"],
+        "summary": "get messages by user id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "name": "offset",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "requestBody": {
+          "description": "get messages by user id.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getAllMessagesByUserId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createMessage": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "create message",
+        "requestBody": {
+          "description": "create message",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addComments": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "add comments to post",
+        "requestBody": {
+          "description": "write a comment to a post",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addComments"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getLastMessage": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "get last message",
+        "requestBody": {
+          "description": "get last message",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getLastMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getProfilePic": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "get profile pic",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/uploadProfilePic": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "upload profilepicture",
+        "requestBody": {
+          "description": "user registration.",
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "picture": { "type": "file", "required": true },
+                  "type": { "type": "string", "required": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/uploadAttachment": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "upload profilepicture",
+        "requestBody": {
+          "description": "user registration.",
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "picture": { "type": "file", "required": true },
+                  "type": { "type": "string", "required": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editComment": {
+      "post": {
+        "tags": ["UPDATE"],
+        "summary": "edit comment on post",
+        "requestBody": {
+          "description": "edit your comment on post",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/editComment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sendNotification": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "Send notification",
+        "requestBody": {
+          "description": "api to send Notifications to users",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sendNotification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getNotificationsByType": {
+      "post": {
+        "tags": ["POST"],
+        "summary": "Get all notifications by Type",
+        "requestBody": {
+          "description": "api to get Notifications By Notification Type",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getNotificationByType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllNotifications": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get all notifications ",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateNotificationStatus": {
+      "get": {
+        "tags": ["UPDATE"],
+        "summary": "Get all notifications by Type",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fromUserId",
+            "requires": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteComment/{postId}": {
+      "post": {
+        "tags": ["DELETE"],
+        "summary": "delete  user comments on post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "postId",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getCommentById/{postId}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get All  user comments on post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "postId",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancelFriendRequest/{toUserId}": {
+      "get": {
+        "tags": ["DELETE"],
+        "summary": "Cancel a Friend Request",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "toUserId",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancelMyRequest/{toUserId}": {
+      "get": {
+        "tags": ["DELETE"],
+        "summary": "Cancel a Friend Request i sent",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "toUserId",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/acceptRequest/{toUserId}": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get All Chated user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "toUserId",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getChatUsers/{id}/": {
+      "get": {
+        "tags": ["GET"],
+        "summary": "Get All Chated user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Request Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "name": "api-access-token",
+        "in": "header",
+        "description": "Jwt authentication to access service"
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "object",
+            "properties": {
+              "Error": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "registerUser": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "required": true
+          },
+          "lastName": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "getLastMessage": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "required": true
+          },
+          "toUserId": {
+            "type": "number",
+            "required": true
+          }
+        }
+      },
+      "editComment": {
+        "type": "object",
+        "properties": {
+          "postId": {
+            "type": "number",
+            "required": true
+          },
+          "comment": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "addComments": {
+        "type": "object",
+        "properties": {
+          "postId": {
+            "type": "number",
+            "required": true
+          },
+          "comment": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "addPost": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "required": true
+          },
+          "title": {
+            "type": "string",
+            "required": true
+          },
+          "description": {
+            "type": "string",
+            "required": true
+          },
+          "status": {
+            "type": "string",
+            "required": true
+          },
+          "type": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "deletePost": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "required": true
+          },
+          "postId": {
+            "type": "number",
+            "required": true
+          }
+        }
+      },
+      "adminLogin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "getAllUser": {
+        "type": "object",
+        "properties": {
+          "searchBy": {
+            "type": "string",
+            "required": false
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date",
+            "required": false
+          },
+          "fromDate": {
+            "type": "string",
+            "format": "date",
+            "required": false
+          }
+        }
+      },
+      "createMessage": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "required": true
+          },
+          "toUserId": {
+            "type": "number",
+            "required": true
+          },
+          "message": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "forgotPassword": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "editProfile": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "required": false
+          },
+          "lastName": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "changePassword": {
+        "type": "object",
+        "properties": {
+          "oldPassword": {
+            "type": "string",
+            "required": true
+          },
+          "newPassword": {
+            "type": "string",
+            "required": true
+          },
+          "confirmPassword": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "sendNotification": {
+        "type": "object",
+        "properties": {
+          "toUserId": {
+            "type": "number",
+            "required": true
+          },
+          "fromUserId": {
+            "type": "number",
+            "required": true
+          },
+          "message": {
+            "type": "string",
+            "required": true
+          },
+          "type": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "searchFriend": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "getNotificationByType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "addFriend": {
+        "type": "object",
+        "properties": {
+          "toRequestId": {
+            "type": "number",
+            "required": true
+          }
+        }
+      },
+      "resetPassword": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "getMessagesByUserId": {
+        "type": "object",
+        "properties": {
+          "toUserId": {
+            "type": "number",
+            "required": true
+          }
+        }
+      },
+      "getAllMessagesByUserId": {
+        "type": "object",
+        "properties": {
+          "toUserId": {
+            "type": "number",
+            "required": true
+          },
+          "FromUserId": {
+            "type": "number",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}
