@@ -11,6 +11,8 @@ function Theme() {
   };
   return (
     <div className="Theme">
+ <Header status={status} />      
+       <Button variant="primary" onClick={changeStatus}>Primary</Button>{' '}
 
     </div>
     
