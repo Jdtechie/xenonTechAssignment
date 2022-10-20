@@ -1,0 +1,106 @@
+.headerOuter {
+    background-color:#ffffff;
+    height: 95px;
+    border-bottom: 1px solid rgb(0, 166, 255);
+  }
+  .loginSignup {
+    cursor: pointer;
+  }
+  .loginSignup span {
+    color: red;
+    margin: 10px 12px;
+  }
+  .forgotPassword {
+    font-size: 12px;
+    color: blue;
+    text-align: right;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .headerLeft {
+    color: rgb(203, 192, 192);
+    font-size: 25px;
+    padding: 0px 25px;
+    width: 300px;
+    float: left;
+  }
+  .logo{
+    width: 230px;
+    height: 160px;
+    padding-bottom: 45px;
+  }
+  .headerRight {
+    color:black;
+    float: right;
+    width: 300px;
+    padding: 30px 25px;
+    text-align: right;
+  }
+  .col {
+    background-color: #02343e; 
+    height:660px;
+    width: 20%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .col a {
+    text-decoration: none;
+    color: rgb(252, 250, 250);
+  }
+  
+  .col h6 {
+    text-align: center;
+  }
+  
+  .col1 {
+    width: 70%;
+height: 660px;
+    margin-left: 0.1%;
+    background-color: #021d24;
+  }
+  
+  header {
+    background-color: rgb(105, 167, 242);
+  
+    margin-left: -10.7px;
+  
+    margin-right: -4px;
+  
+    height: 40px;
+  
+    text-align: center;
+  }
+  
+  .button {
+    padding: 50px 0px 50px 0px;
+  
+    text-align: center;
+  
+    size: 20px;
+  }
+  
+  .button1 {
+    padding-top: 15px;
+  
+    text-align: center;
+  
+    size: 20px;
+  }
+  
+  .button2 {
+    padding-top: 70px;
+  
+    text-align: center;
+  
+    size: 20px;
+  }
+  .footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    margin: 0px;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background:#021d24;
+  }
+  
